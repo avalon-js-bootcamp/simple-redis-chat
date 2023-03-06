@@ -5,3 +5,13 @@ services:
     image: redis
     ports:
       - "6379:6379"
+
+  chat:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=123456
+    depends_on:
+      - redis
