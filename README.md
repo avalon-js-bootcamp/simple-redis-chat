@@ -4,4 +4,10 @@ Simple chat application backend using Node.js, Express and Redis.
 
 ## Prepare for production
 
-docker run -p 3000:3000 --name chat-app
+### Build docker image
+
+docker build -t chat-app .
+
+### Run docker container with environment file
+
+docker run --env-file .env -p 3000:3000 chat-app

@@ -1,8 +1,13 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const Redis = require('ioredis');
 
-const redis = new Redis();
+const redis = new Redis({
+    host: process.env.REDIS_HOST,
+    password: process.env.REDIS_PASSWORD,
+});
 
 const app = express();
 
