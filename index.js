@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const Redis = require('ioredis');
+const cors = require('cors');
 
 const redis = new Redis({
     host: process.env.REDIS_HOST,
@@ -13,6 +14,7 @@ const redis = new Redis({
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 function isValidString(string) {
     return string && typeof string === 'string' && string.length > 0 && string.length < 256;
